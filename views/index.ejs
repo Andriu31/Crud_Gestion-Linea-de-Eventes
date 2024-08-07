@@ -1,0 +1,63 @@
+<br>
+<div class="row mb-3">
+    <div class="col-md-10 offset-md-1">
+        <form  action="" >
+            <div class="input-group">
+                <input name="buscar" type="text" class="form-control form-control-lg" placeholder="Buscar por departamento">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-lg btn-default">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+  </div>
+  <table class="table table-striped projects col-md-10 offset-md-1 mt-4 "  >
+    <thead >
+        <tr>
+            <th style="width: 1%">
+                #
+            </th>
+            <th style="width: 20%">
+  
+  Nombre         </th>
+            <th style="width: 20%">
+                Fecha del evento
+            </th>
+            <th style="width: 20%">
+                Categoria
+            </th>
+  
+        </tr>
+    </thead>
+    <tbody>
+      <% evento.forEach((evento)=>{%>
+        <tr>
+            <td>
+              <%=evento.id%>
+            </td>
+            <td>
+              <%=evento.evento%>
+  
+            </td>
+            <td>
+              <% const fechaEvento = new Date(evento.hora); %>
+              <%= fechaEvento.toLocaleDateString('es-ES', {day: 'numeric',month: 'numeric', year: 'numeric',   }) %>
+              
+  
+             </td>
+             <td>
+              <%=evento.categoria.categoria%>
+  
+             </td>
+             <td><button ><a href="/EventoUpdate/<%=evento.id%>">Update</a></button></td>
+             <td><button><a href="/delete/<%=evento.id%>">Delet</a></button></td>
+  
+        </tr>
+  
+  
+  <%})%>
+    </tbody>
+  </table>
+ 

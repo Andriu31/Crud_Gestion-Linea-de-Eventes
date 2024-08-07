@@ -1,0 +1,50 @@
+<style>
+  .inicio{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 50vh;
+    align-items: center;
+    position: absolute;
+    color: red;
+    width: 750px;
+    margin-left: -1%;
+  }
+</style>
+<div class="card card-primary col-md-10 offset-md-1">
+    
+    <form method="POST" action="/create" >
+
+      <div class="card-body">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Nombre del Evento</label>
+          <input type="text" name="evento" required class="form-control" id="exampleInputEmail1" >
+        </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail3">Tiempo evento</label>
+            <input type="date" name="hora" required class="form-control" id="exampleInputEmail3"  title="Ingrese un número decimal válido">
+          </div>
+
+
+        <label for="inputStatus">Categoria</label>
+        <select name="categoria_id" required id="inputStatus" class="form-control custom-select">
+          <%categorias.forEach((empleados)=>{%>
+            <option value="<%=empleados.id%>"><%=empleados.categoria%></option>
+        <%})%>
+        </select>
+
+        <div class="card-footer">
+         <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+    </form>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  function comenzar(){
+    document.querySelector(".inicio").style.display="none"
+}
+</script>
